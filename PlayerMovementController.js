@@ -3,23 +3,22 @@ function leftArrowPressed() {
             element.style.left = parseInt(element.style.left) - 5 + 'px';
             }
 
-            function rightArrowPressed() {
+function rightArrowPressed() {
             var element = document.getElementById("player");
             element.style.left = parseInt(element.style.left) + 5 + 'px';
-
             }
 
-            function upArrowPressed() {
+function upArrowPressed() {
             var element = document.getElementById("player");
             element.style.top = parseInt(element.style.top) - 5 + 'px';
             }
 
-            function downArrowPressed() {
+function downArrowPressed() {
             var element = document.getElementById("player");
             element.style.top = parseInt(element.style.top) + 5 + 'px';
             }
 
-            function moveSelection(evt) {
+function moveSelection(evt) {
                 switch (evt.keyCode) {
                     case 37:
                     leftArrowPressed();
@@ -36,7 +35,7 @@ function leftArrowPressed() {
                     }
                 }
 
-        function docReady()
+function docReady()
         {
           window.addEventListener('keydown', moveSelection);
         }
