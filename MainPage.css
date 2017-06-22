@@ -1,0 +1,39 @@
+body{
+	margin-top:60px;
+}
+
+.topnav{
+	position:fixed;
+	left:0px;
+	top:0px;
+	height:50px;
+	width:100%;
+	background-color:#333333;
+	overflow:hidden;
+}
+
+.button:link {
+    color: white; 
+    background-color: transparent; 
+    text-decoration: none;
+}
+
+.button:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.button:hover {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.button:active {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
+}
+
