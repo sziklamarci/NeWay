@@ -1,9 +1,8 @@
 #playerImg {
     position: absolute;
-    top: 100px;
-    left: 100px;
+    top: 80px;
+    left: 35px;
     width: 50px;
     height: 40px;
-    
-    
+    transform: rotate(90deg);
 }

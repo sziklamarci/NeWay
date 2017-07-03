@@ -5,9 +5,9 @@ var keys = {};
     keys.DOWN = 83;
 
 var character = {
-    angle: 0,
-    x: 100,
-    y: 100,
+    angle: 90,
+    x: 80,
+    y: 35,
     speedMultiplier: 5,
     element: document.getElementById("playerImg")
     };
@@ -30,7 +30,8 @@ document.body.onkeydown = function(e){
     };
 
 var detectCharacterMovement = function(){
-    if (keys[keys.LEFT]) {
+    
+    if (keys[keys.LEFT] && !keys[keys.DOWN]) {
         character.angle-=bonuses.turn;
         if(character.angle<=0)
             {
@@ -39,7 +40,7 @@ var detectCharacterMovement = function(){
         character.element.style.transform = "rotate("+character.angle+"deg)";
       }
     
-    if (keys[keys.RIGHT]) 
+    if (keys[keys.RIGHT] && !keys[keys.DOWN]) 
         {
             character.angle+=bonuses.turn;
             if(character.angle>=360)
@@ -63,9 +64,50 @@ var detectCharacterMovement = function(){
             character.y = character.y - Math.cos(character.angle/180 * Math.PI)*3;
             character.element.style.top = character.x + 'px';
             character.element.style.left = character.y + 'px';
+            if (keys[keys.RIGHT]) 
+                {
+                    character.angle-=bonuses.turn;
+                    if(character.angle<=0)
+                        {
+                            character.angle=360;
+                        }
+                    character.element.style.transform = "rotate("+character.angle+"deg)";
+                }
+            if (keys[keys.LEFT]) 
+                {
+                    character.angle+=bonuses.turn;
+                    if(character.angle>=360)
+                        {
+                            character.angle=0;
+                        }  
+                    character.element.style.transform = "rotate("+character.angle+"deg)";
+                    
+                }
         }
 };
 
-setInterval(function(){
-    detectCharacterMovement();
+function boundarys()
+{
+    if(character.x<=65)
+            {
+                character.x = 65;
+            }
+    if(character.y<=10)
+            {
+                character.y = 10;
+            }
+    if(character.x>=window.innerHeight - 58)
+            {
+                character.x = window.innerHeight - 58;
+            }
+    if(character.y>=window.innerWidth - 62)
+            {
+                character.y = window.innerWidth - 62;
+            }
+}
+
+setInterval(function()
+    {
+        boundarys();
+        detectCharacterMovement();
     }, 1000/30);
