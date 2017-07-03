@@ -21,18 +21,78 @@ body{
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    
+    position: relative;
+    display: inline-block;
+    
+    
+    
 }
 
-.button:visited {
-    color: white;
-    background-color: transparent;
-    text-decoration: none;
+
+.button:after {
+    right: 0;
+    bottom: 5px;
+    transform: rotate(90deg);
+    transform-origin: 100% 0;
+    position: absolute;
+    width: 45px;
+    height: 2px;
+    content: '';
+    opacity: 0;
+    transition: all 0.3s;
+    pointer-events: none;
+    background: #fff;
+}
+
+.button:hover:after{
+    right: 50%;
+    transform: translateX(50%);
+    opacity: 1;
+    width: 90%;
+    height: 2px;
+    content: '';
+    transition: all 0.3s;
+    pointer-events: none;
+    background: #fff;
+}
+
+.button:before {
+    right: 0;
+    bottom: 0px;
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+    position: absolute;
+    width: 45px;
+    height: 2px;
+    content: '';
+    opacity: 0;
+    transition: all 0.3s;
+    pointer-events: none;
+    background: #fff;
+}
+
+.button:hover:before {
+    top:5px;
+    right: 50%;
+    transform: translateX(50%);
+    opacity: 1;
+    width: 90%;
+    height: 2px;
+    content: '';
+    transition: all 0.3s;
+    pointer-events: none;
+    background: #fff;
 }
 
 .button:hover {
     color: white;
     background-color: transparent;
     text-decoration: none;
+    outline: none;
+    position: relative;
+    display: inline-block;
+    
 }
 
 .button:active {
@@ -41,5 +101,9 @@ body{
     text-decoration: none;
 }
 
-
+.button:visited {
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+}
 
